@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Header from '../components/Header.jsx';
 import Search from '../components/Search.jsx';
 import Categories from '../components/Categories.jsx';
@@ -9,7 +9,7 @@ import useInitialState from '../hooks/useInitialState.js';
 
 import '../assets/styles/App.scss'
 
-const App = () => {
+const Home = () => {
     const API = 'http://localhost:3000/initialState'
     const videos = useInitialState(API);    
 
@@ -18,8 +18,7 @@ const App = () => {
     const renderApp = () => {
         if(videos.length !== 0 ) {
             return(
-                <div className="app">
-                    <Header/>
+                <Fragment>
                     <Search/>
                     {
                         mylist.length > 0 &&
@@ -52,8 +51,7 @@ const App = () => {
                                 </Carousel>
                             </Categories>
                     }
-                    <Footer/>
-                </div>
+                </Fragment>
             )
         }else return ''
     }
@@ -66,4 +64,4 @@ const App = () => {
 
 }
 
-export default App;
+export default Home;
